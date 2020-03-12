@@ -43,7 +43,8 @@ def train(args, model, device, train_loader, optimizer, epoch):
                            epsilon=args.epsilon,
                            perturb_steps=args.num_steps,
                            beta=args.beta,
-                           distance='l_inf')
+                           distance='l_inf',
+                           device=device)
         loss.backward()
         optimizer.step()
         if batch_idx % args.log_interval == 0:

@@ -88,7 +88,7 @@ def perturb_hinge(net, x_nat):
     # Perturb function based on (E[\phi(f(x)f(x'))])
     # init with random noise
     net.eval()
-    x = x_nat.detach() + 0.001 * torch.randn(x_nat.shape).cuda().detach()
+    x = x_nat.detach() + 0.001 * torch.randn(x_nat.shape).to(device).detach()
     for _ in range(args.num_steps):
         x.requires_grad_()
         with torch.enable_grad():
@@ -106,7 +106,7 @@ def perturb_logistic(net, x_nat, target):
     # Perturb function based on logistic loss
     # init with random noise
     net.eval()
-    x = x_nat.detach() + 0.001 * torch.randn(x_nat.shape).cuda().detach()
+    x = x_nat.detach() + 0.001 * torch.randn(x_nat.shape).to(device).detach()
     for _ in range(args.num_steps):
         x.requires_grad_()
         with torch.enable_grad():
