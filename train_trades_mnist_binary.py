@@ -50,10 +50,10 @@ device = torch.device("cuda" if use_cuda else "cpu")
 kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
 
 # download MNIST dataset
-dataset_train = datasets.MNIST('../data', train=True, download=True,
+dataset_train = datasets.MNIST('./data', train=True, download=True,
                                transform=transforms.Compose([transforms.ToTensor()]))
 
-dataset_test = datasets.MNIST('../data', train=False,
+dataset_test = datasets.MNIST('./data', train=False,
                               transform=transforms.Compose([transforms.ToTensor()]))
 
 
